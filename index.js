@@ -11,7 +11,7 @@ client.on('ready', () => {
 const creator = ['jens', 'mic'];
 
 client.on('message', (msg) => {
-    if (creator.includes(msg.content.toString().toLowerCase())) {
+    if (creator.includes(msg.content.toLowerCase())) {
         msg.reply('Super Tüp');
     }
 });
