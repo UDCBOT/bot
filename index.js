@@ -8,9 +8,11 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+const creator = ['Jens', 'Mic'];
+
 client.on('message', (msg) => {
-    if (msg.content === 'ping') {
-        msg.reply('Pong!');
+    if (creator.indexOf(msg.content.toString()) !== -1) {
+        msg.reply('Super Tüp');
     }
 });
 

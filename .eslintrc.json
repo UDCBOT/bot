@@ -24,6 +24,10 @@
                     "log"
                 ]
             }
+        ],
+        "arrow-parens": [
+            "error",
+            "always"
         ]
     }
 }
