@@ -28,6 +28,10 @@
         "arrow-parens": [
             "error",
             "always"
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
         ]
     }
 }
