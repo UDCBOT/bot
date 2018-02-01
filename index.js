@@ -8,10 +8,10 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const creator = ['Jens', 'Mic'];
+const creator = ['jens', 'mic'];
 
 client.on('message', (msg) => {
-    if (creator.includes(msg.content.toString())) {
+    if (creator.includes(msg.content.toString().toLowerCase())) {
         msg.reply('Super Tüp');
     }
 });
