@@ -8,7 +8,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const creators = ['jens', 'mic', 'rené', 'lukas'];
+const creators = ['jens', 'mic', 'timo', 'lukas'];
 
 client.on('message', (msg) => {
     if (creators.includes(msg.content.toLowerCase())) {
