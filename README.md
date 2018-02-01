@@ -8,4 +8,8 @@
 
 ### Get started
 * Run `npm install`
+* Setup `.env` File with your bot token:
+    ```
+    token = YOUR_TOKEN
+    ```
 * Setup eslint in your IDE
