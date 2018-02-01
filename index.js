@@ -11,7 +11,7 @@ client.on('ready', () => {
 const creator = ['Jens', 'Mic'];
 
 client.on('message', (msg) => {
-    if (creator.indexOf(msg.content.toString()) !== -1) {
+    if (creator.includes(msg.content.toString())) {
         msg.reply('Super Tüp');
     }
 });
