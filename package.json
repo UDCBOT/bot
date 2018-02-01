@@ -1,0 +1,31 @@
+{
+  "name": "udcb",
+  "version": "1.0.0",
+  "description": "community bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UDCBOT/bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "udcb team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UDCBOT/bot/issues"
+  },
+  "homepage": "https://github.com/UDCBOT/bot#readme",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  }
+}
