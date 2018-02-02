@@ -12,7 +12,7 @@ const creators = ['Jens', 'Mic', 'Timo', 'Lukas', 'Johannes'];
 const startsWithCreatorRegex = new RegExp(`^(${creators.join('|')})`, 'i');
 
 client.on('message', (msg) => {
-    if (startsWithCreatorRegex.test(msg.content.toLowerCase())) {
+    if (startsWithCreatorRegex.test(msg.content)) {
         msg.reply('Super Tüp');
     }
 });
