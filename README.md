@@ -1,5 +1,7 @@
 # UDCB
 
+[![CircleCI](https://img.shields.io/circleci/project/github/UDCBOT/bot.svg)](https://circleci.com/gh/UDCBOT)
+
 ## Setup
 
 ### Requirements
