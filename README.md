@@ -1,6 +1,6 @@
 # UDCB
 
-[![CircleCI](https://img.shields.io/circleci/project/github/UDCBOT/bot.svg)](https://circleci.com/gh/UDCBOT)
+[![Build Status](https://travis-ci.org/UDCBOT/bot.svg?branch=master)](https://travis-ci.org/UDCBOT/bot)
 
 ## Setup
 
