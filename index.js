@@ -8,10 +8,11 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const creators = ['jens', 'mic', 'timo', 'lukas', 'jo'];
+const creators = ['Jens', 'Mic', 'Timo', 'Lukas', 'Johannes'];
+const startsWithCreatorRegex = new RegExp(`^(${creators.join('|')})`, 'i');
 
 client.on('message', (msg) => {
-    if (creators.includes(msg.content.toLowerCase())) {
+    if (startsWithCreatorRegex.test(msg.content.toLowerCase())) {
         msg.reply('Super Tüp');
     }
 });
