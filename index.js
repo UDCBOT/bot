@@ -10,11 +10,18 @@ client.on('ready', () => {
 
 const creators = ['Jens', 'Mic', 'Timo', 'Lukas', 'Johannes'];
 const startsWithCreatorRegex = new RegExp(`^(${creators.join('|')})`, 'i');
+const jqueryDetectRegex = /jquery/gim;
 
 client.on('message', (msg) => {
+    // detect messages about jquery
+    if (jqueryDetectRegex.test(msg.content)) {
+        // add reaction
+        msg.react('🤢');
+    }
+
     if (startsWithCreatorRegex.test(msg.content)) {
-        msg.reply('Super Tüp');
+        msg.channel.send(`Ja, ${msg.author}, der ist super cool! :)`);
     }
 });
 
-client.login(process.env.token.toString());
+client.login(process.env.token.toStering());
