@@ -24,4 +24,4 @@ client.on('message', (msg) => {
     }
 });
 
-client.login(process.env.token.toStering());
+client.login(process.env.token.toString());
