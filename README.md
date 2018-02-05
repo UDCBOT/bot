@@ -6,6 +6,7 @@
 
 ### Requirements
 * [NodeJS](https://nodejs.org/en/) (v9.4.0 +)
+* [Gulp Cli](https://gulpjs.com/) (v2.0.1 +)
 * Some IDE
 
 ### Get started
@@ -15,3 +16,4 @@
     token = YOUR_TOKEN
     ```
 * Setup eslint in your IDE
+* Run `gulp` for build process
