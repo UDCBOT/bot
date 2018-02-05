@@ -1,4 +1,4 @@
-###Changlog
+###Changelog
 - foo
 - bar
 - baz
