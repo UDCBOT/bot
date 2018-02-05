@@ -1,0 +1,33 @@
+{
+    "extends": "tslint-config-airbnb",
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "indent": [
+            true,
+            "spaces",
+            4
+        ],
+        "no-console": {
+            "severity": "warn",
+            "options": [
+                "warn",
+                "error",
+                "log"
+            ]
+        },
+        "arrow-parens": true,
+        "linebreak-style": [
+            true,
+            "CRLF"
+        ]
+    }
+}

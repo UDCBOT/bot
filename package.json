@@ -2,9 +2,10 @@
   "name": "udcb",
   "version": "1.0.0",
   "description": "community bot",
-  "main": "index.js",
+  "main": "out/src/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node out/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,19 @@
   },
   "homepage": "https://github.com/UDCBOT/bot#readme",
   "devDependencies": {
-    "eslint": "^4.16.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "mocha": "^5.0.0"
+    "@types/core-js": "^0.9.46",
+    "@types/node": "^9.4.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.4",
+    "mocha": "^5.0.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.5.0"
   },
   "dependencies": {
     "discord.js": "^11.3.0",
     "dotenv": "^5.0.0",
+    "gulp-cli": "^2.0.1",
+    "typescript": "^2.7.1",
     "uws": "^9.14.0"
   }
 }
