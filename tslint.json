@@ -1,5 +1,5 @@
 {
-    "extends": "airbnb-base",
+    "extends": "tslint-config-airbnb",
     "env": {
         "node": true
     },
