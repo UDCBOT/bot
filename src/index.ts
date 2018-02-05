@@ -1,14 +1,15 @@
-(require('dotenv').config());
+import { Client } from "discord.js";
+import TeamMessageHandler from "./message/handler/TeamMessageHandler";
+import JQueryMessageHandler from "./message/handler/JQueryMessageHandler";
 
-const discord = require('discord.js');
+import * as dotenv from "dotenv";
 
-const client = new discord.Client();
+dotenv.load();
 
-const TeamMessageHandler = require('./src/message/handler/TeamMessageHandler');
 
-const JQueryMessageHandler = require('./src/message/handler/JQueryMessageHandler');
+const client = new Client;
 
-const messageHandlers = [new TeamMessageHandler(), new JQueryMessageHandler()];
+const messageHandlers = [new TeamMessageHandler, new JQueryMessageHandler];
 
 
 client.on('ready', () => {

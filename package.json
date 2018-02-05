@@ -2,9 +2,10 @@
   "name": "udcb",
   "version": "1.0.0",
   "description": "community bot",
-  "main": "index.js",
+  "main": "out/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "node out/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,13 +22,16 @@
   },
   "homepage": "https://github.com/UDCBOT/bot#readme",
   "devDependencies": {
+    "@types/node": "^9.4.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "tslint": "^5.9.1"
   },
   "dependencies": {
     "discord.js": "^11.3.0",
     "dotenv": "^5.0.0",
+    "typescript": "^2.7.1",
     "uws": "^9.14.0"
   }
 }

@@ -1,15 +1,15 @@
-class AbstractMessageHandler {
+import { Client, Message } from "discord.js";
+
+export default abstract class AbstractMessageHandler {
     /**
      * @param {RegExp} regex
      */
-    constructor(regex) {
-        this.regex = regex;
-    }
+    constructor(private regex: RegExp) { }
 
     /**
      * @param {string} message
      */
-    canHandle(message) {
+    canHandle(message: string) {
         return this.regex.test(message);
     }
 
@@ -19,10 +19,8 @@ class AbstractMessageHandler {
      * @param {Message} message
      * @param {Client} client
      */
-    handle(message, client) {
+    handle(message: Message, client: Client) {
         throw new Error('Not implemented');
     }
     /* eslint-enable */
 }
-
-module.exports = AbstractMessageHandler;
