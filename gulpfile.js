@@ -1,8 +1,9 @@
 const gulp = require('gulp');
 
-function defaultTask() {
-    console.log('Gulp works!');
+function copyFiles() {
+    gulp.src('src/**/*.js')
+        .pipe(gulp.dest('build/'));
 }
 
-gulp.task('default', defaultTask);
+gulp.task('default', copyFiles);
 
