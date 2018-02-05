@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "outDir": "./out",
-        "target": "es2017",
+        "target": "es2017"
     },
     "exclude": [
         "node_modules"
