@@ -4,7 +4,7 @@
   "description": "community bot",
   "main": "out/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "mocha",
     "start": "node out/index.js"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "tslint": "^5.9.1"
+    "mocha": "^5.0.0"
   },
   "dependencies": {
     "discord.js": "^11.3.0",
