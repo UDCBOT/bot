@@ -2,6 +2,12 @@ language: node_js
 node_js:
   - "9"
 
+before_install:
+  - npm install -g gulp-cli
+
+before_script:
+  - gulp
+
 cache:
   directories:
     - "node_modules"
