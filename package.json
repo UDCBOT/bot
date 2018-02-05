@@ -23,12 +23,10 @@
   "homepage": "https://github.com/UDCBOT/bot#readme",
   "devDependencies": {
     "@types/node": "^9.4.0",
-    "eslint": "^4.16.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "tslint": "^5.9.1"
     "gulp": "^3.9.1",
-    "mocha": "^5.0.0"
+    "gulp-typescript": "^3.2.4",
+    "mocha": "^5.0.0",
+    "tslint": "^5.9.1"
   },
   "dependencies": {
     "discord.js": "^11.3.0",
