@@ -20,7 +20,7 @@ client.on('message', (msg) => {
     for (let i = 0; i < messageHandlers.length; i += 1) {
         const handler = messageHandlers[i];
 
-        if (handler.canHandle(msg)) {
+        if (handler.canHandle(msg.content)) {
             handler.handle(msg, client);
             break;
         }
