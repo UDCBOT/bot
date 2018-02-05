@@ -1,12 +1,11 @@
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json');
 
 function copyFiles() {
     gulp.src('src/**/*.ts')
-        .pipe(ts({
-            noImplicitAny: false,
-        }))
-        .pipe(gulp.dest('out/src/'));
+        .pipe(tsProject())
+        .pipe(gulp.dest('out/'));
 }
 
 gulp.task('default', copyFiles);
