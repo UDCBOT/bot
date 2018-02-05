@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 const assert = require('assert');
-const JQueryMessageHandler = require('../src/message/handler/JQueryMessageHandler');
-const TeamMessageHandler = require('../src/message/handler/TeamMessageHandler');
+const JQueryMessageHandler = require('../out/message/handler/JQueryMessageHandler');
+const TeamMessageHandler = require('../out/message/handler/TeamMessageHandler');
 
 describe('messageHandler', () => {
     describe('jQueryHandler', () => {
-        const JQueryMessageHandlerObject = new JQueryMessageHandler();
+        const JQueryMessageHandlerObject = new JQueryMessageHandler.default();
         describe('jQueryPositive', () => {
             it('should recognize jQuery message', () => {
                 assert.strictEqual(JQueryMessageHandlerObject.canHandle('jQuery is very nice'), true);
@@ -18,7 +17,7 @@ describe('messageHandler', () => {
         });
     });
     describe('TeamMessageHandler', () => {
-        const TeamMessageHandlerObject = new TeamMessageHandler();
+        const TeamMessageHandlerObject = new TeamMessageHandler.default();
         describe('jQueryPositive', () => {
             it('should recognize creator', () => {
                 assert.strictEqual(TeamMessageHandlerObject.canHandle('Mic is nice'), true);
