@@ -4,9 +4,9 @@ const discord = require('discord.js');
 
 const client = new discord.Client();
 
-const TeamMessageHandler = require('./src/message/handler/TeamMessageHandler');
+const TeamMessageHandler = require('./build/message/handler/TeamMessageHandler');
 
-const JQueryMessageHandler = require('./src/message/handler/JQueryMessageHandler');
+const JQueryMessageHandler = require('./build/message/handler/JQueryMessageHandler');
 
 const messageHandlers = [new TeamMessageHandler(), new JQueryMessageHandler()];
 
