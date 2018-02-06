@@ -1,8 +1,8 @@
-import { Client } from "discord.js";
-import TeamMessageHandler from "./message/handler/TeamMessageHandler";
-import JQueryMessageHandler from "./message/handler/JQueryMessageHandler";
+import { Client } from 'discord.js';
+import TeamMessageHandler from './message/handler/TeamMessageHandler';
+import JQueryMessageHandler from './message/handler/JQueryMessageHandler';
 
-import * as dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 
 dotenv.load();
 
