@@ -17,6 +17,9 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
+    // If author is bot exit
+    if (msg.author.bot) return;
+
     // get the first handler that can handle this message
     for (let i = 0; i < messageHandlers.length; i += 1) {
         const handler = messageHandlers[i];
