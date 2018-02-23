@@ -11,23 +11,9 @@
         }
     },
     "rules": {
-        "indent": [
-            true,
-            "spaces",
-            4
-        ],
-        "no-console": {
-            "severity": "warn",
-            "options": [
-                "warn",
-                "error",
-                "log"
-            ]
-        },
+        "ter-indent": [true, 4],
+        "no-console": [false],
         "arrow-parens": true,
-        "linebreak-style": [
-            true,
-            "CRLF"
-        ]
+        "linebreak-style": [true, "CRLF"]
     }
 }
