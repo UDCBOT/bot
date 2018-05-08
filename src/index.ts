@@ -1,8 +1,9 @@
 import { Client } from 'discord.js';
-import TeamMessageHandler from './message/handler/TeamMessageHandler';
-import JQueryMessageHandler from './message/handler/JQueryMessageHandler';
+import TeamMessageHandler      from './message/handler/TeamMessageHandler';
+import JQueryMessageHandler    from './message/handler/JQueryMessageHandler';
 
-import * as dotenv from 'dotenv';
+import * as dotenv      from 'dotenv';
+import GuildJoinHandler from './enter/GuildJoinHandler';
 
 dotenv.load();
 
@@ -29,6 +30,10 @@ client.on('message', (msg) => {
             break;
         }
     }
+});
+
+client.on('guildMemberAdd', (member) => {
+    new GuildJoinHandler(member, client);
 });
 
 client.login(process.env.token.toString());
