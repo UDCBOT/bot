@@ -1,4 +1,6 @@
-const { greetingStringsLocal } = require('../lang/de-de/GuildJoinLang');
+import Lang                                 from "../utils/Lang";
+
+const { greetingStringsLocal } = require('../../lang/de-de/GuildJoinLang');
 import { Client, GuildMember, TextChannel } from 'discord.js';
 import { welcomeChannelId }                 from '../constants';
 
