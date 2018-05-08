@@ -1,3 +1,4 @@
+const { greetingStringsLocal } = require('../lang/de-de/GuildJoinLang');
 import { Client, GuildMember, TextChannel } from 'discord.js';
 import { welcomeChannelId }                 from '../constants';
 
@@ -7,11 +8,11 @@ export default class GuildJoinHandler
     private channel: TextChannel = undefined;
 
     private greetingStrings: String[] = [
-        'Mit {{name}} wird PHP zu HTML!',
-        'Platz da, {{name}} kommt!',
-        'Achtung! Das W3C hat ein neuen HTML5-Tag eingeführt: <{{name}}/>',
-        '{{name}} braucht kein Framework. Das Framework braucht ihn!',
-        '{{name}} bringt iFrames im IE zum laufen!',
+        'phpToHtml',
+        'place',
+        'newTag',
+        'noFramework',
+        'ieIframes',
     ];
 
     constructor(member: GuildMember, client: Client) {
@@ -28,8 +29,8 @@ export default class GuildJoinHandler
 
     private getGreetingString(name) {
         const length = this.greetingStrings.length;
-        const greetingString = this.greetingStrings[Math.floor(Math.random() * length)];
+        const greetingKey = this.greetingStrings[Math.floor(Math.random() * length)];
+        const greetingString = greetingStringsLocal[<string>greetingKey];
         return greetingString.replace('{{name}}', name);
     }
-
 }
