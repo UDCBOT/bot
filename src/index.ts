@@ -17,7 +17,7 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
-    // If author is bot exit
+    // do not care about the message if the author is a bot
     if (msg.author.bot) return;
 
     // get the first handler that can handle this message
