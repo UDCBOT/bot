@@ -18,6 +18,9 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
+    // do not care about the message if the author is a bot
+    if (msg.author.bot) return;
+
     // get the first handler that can handle this message
     for (let i = 0; i < messageHandlers.length; i += 1) {
         const handler = messageHandlers[i];
