@@ -1,11 +1,8 @@
-import Lang                                 from "../utils/Lang";
-
-const { greetingStringsLocal } = require('../../lang/de-de/GuildJoinLang');
+import Lang from '../utils/Lang';
 import { Client, GuildMember, TextChannel } from 'discord.js';
-import { welcomeChannelId }                 from '../constants';
+import { welcomeChannelId } from '../constants';
 
-export default class GuildJoinHandler
-{
+export default class GuildJoinHandler {
 
     private channel: TextChannel = undefined;
 
@@ -30,9 +27,9 @@ export default class GuildJoinHandler
     }
 
     private getGreetingString(name) {
+        const lang = new Lang('GuildJoinLang');
         const length = this.greetingStrings.length;
         const greetingKey = this.greetingStrings[Math.floor(Math.random() * length)];
-        const greetingString = greetingStringsLocal[<string>greetingKey];
-        return greetingString.replace('{{name}}', name);
+        return lang.get(`greetingStrings.${greetingKey}`, { name });
     }
 }
