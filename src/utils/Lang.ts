@@ -1,7 +1,6 @@
 import { readFileSync } from 'fs';
 
-export default class Lang
-{
+export default class Lang {
     filePath: string;
     lang: object;
 
@@ -22,7 +21,7 @@ export default class Lang
             }
         }
 
-        return this.getFromObj(path, this.lang);
+        return template;
     }
 
     private getFromObj(path: string[], object: object): string {
