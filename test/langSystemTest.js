@@ -16,7 +16,7 @@ describe('langSystem', () => {
         });
     });
     describe('langSystem with variables', () => {
-        const langHandler = new Lang.default('TestLang', 'de-de');
+        const langHandler = new Lang.default('TestLang');
         const object = { v: "bar" };
         describe('foo with object', () => {
             it('should return "some foo"', () => {
