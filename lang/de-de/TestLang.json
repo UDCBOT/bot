@@ -1,0 +1,6 @@
+{
+    "test": {
+        "foo": "some foo",
+        "bar": "some {{v}}"
+    }
+}
