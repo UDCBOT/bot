@@ -2,3 +2,5 @@
 - foo
 - bar
 - baz
+
+resolves #issueId
