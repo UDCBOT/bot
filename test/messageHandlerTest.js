@@ -18,12 +18,12 @@ describe('messageHandler', () => {
     });
     describe('TeamMessageHandler', () => {
         const TeamMessageHandlerObject = new TeamMessageHandler.default();
-        describe('jQueryPositive', () => {
+        describe('Recognize', () => {
             it('should recognize creator', () => {
                 assert.strictEqual(TeamMessageHandlerObject.canHandle('Mic is nice'), true);
             });
         });
-        describe('jQueryNegative', () => {
+        describe('Not Recognize', () => {
             it('should not recognize creator', () => {
                 assert.strictEqual(TeamMessageHandlerObject.canHandle('Spamming is not allowed'), false);
             });
