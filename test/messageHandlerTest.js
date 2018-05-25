@@ -1,31 +1,29 @@
 const assert = require('assert');
-const JQueryMessageHandler = require('../out/message/handler/JQueryMessageHandler');
-const TeamMessageHandler = require('../out/message/handler/TeamMessageHandler');
+const JQueryMessageHandler = require('../out/message/handler/JQueryMessageHandler').default;
+const TeamMessageHandler = require('../out/message/handler/TeamMessageHandler').default;
 
 describe('messageHandler', () => {
     describe('jQueryHandler', () => {
-        const JQueryMessageHandlerObject = new JQueryMessageHandler.default();
         describe('jQueryPositive', () => {
             it('should recognize jQuery message', () => {
-                assert.strictEqual(JQueryMessageHandlerObject.canHandle('jQuery is very nice'), true);
+                assert.strictEqual(JQueryMessageHandler.canHandle('jQuery is very nice'), true);
             });
         });
         describe('jQueryNegative', () => {
             it('should not recognize jQuery message', () => {
-                assert.strictEqual(JQueryMessageHandlerObject.canHandle('jqoery is super duper'), false);
+                assert.strictEqual(JQueryMessageHandler.canHandle('jqoery is super duper'), false);
             });
         });
     });
     describe('TeamMessageHandler', () => {
-        const TeamMessageHandlerObject = new TeamMessageHandler.default();
         describe('jQueryPositive', () => {
             it('should recognize creator', () => {
-                assert.strictEqual(TeamMessageHandlerObject.canHandle('Mic is nice'), true);
+                assert.strictEqual(TeamMessageHandler.canHandle('Mic is nice'), true);
             });
         });
         describe('jQueryNegative', () => {
             it('should not recognize creator', () => {
-                assert.strictEqual(TeamMessageHandlerObject.canHandle('Spamming is not allowed'), false);
+                assert.strictEqual(TeamMessageHandler.canHandle('Spamming is not allowed'), false);
             });
         });
     });
