@@ -10,7 +10,7 @@ dotenv.load();
 
 const client = new Client;
 
-const messageHandlers = [new TeamMessageHandler, new JQueryMessageHandler];
+const messageHandlers = [TeamMessageHandler, JQueryMessageHandler];
 
 
 client.on('ready', () => {
@@ -22,11 +22,10 @@ client.on('message', (msg) => {
     if (msg.author.bot) return;
 
     // get the first handler that can handle this message
-    for (let i = 0; i < messageHandlers.length; i += 1) {
-        const handler = messageHandlers[i];
-
+    for (const handler of messageHandlers) {
         if (handler.canHandle(msg.content)) {
-            handler.handle(msg, client);
+            const iniatedClass = new handler();
+            iniatedClass.handle(msg, client);
             break;
         }
     }
