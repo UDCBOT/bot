@@ -1,8 +1,9 @@
 import { Client } from 'discord.js';
-import TeamMessageHandler from './message/handler/TeamMessageHandler';
-import JQueryMessageHandler from './message/handler/JQueryMessageHandler';
+import TeamMessageHandler      from './message/handler/TeamMessageHandler';
+import JQueryMessageHandler    from './message/handler/JQueryMessageHandler';
 
-import * as dotenv from 'dotenv';
+import * as dotenv      from 'dotenv';
+import GuildJoinHandler from './enter/GuildJoinHandler';
 
 dotenv.load();
 
@@ -17,6 +18,9 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
+    // do not care about the message if the author is a bot
+    if (msg.author.bot) return;
+
     // get the first handler that can handle this message
     for (const handler of messageHandlers) {
         if (handler.canHandle(msg.content)) {
@@ -25,6 +29,10 @@ client.on('message', (msg) => {
             break;
         }
     }
+});
+
+client.on('guildMemberAdd', (member) => {
+    new GuildJoinHandler(member, client);
 });
 
 client.login(process.env.token.toString());
