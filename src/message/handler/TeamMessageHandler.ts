@@ -1,10 +1,13 @@
 const { creators } = require('../../constants');
-import AbstractMessageHandler from "./AbstractMessageHandler";
-import { Message, Client } from "discord.js";
+import AbstractMessageHandler from './AbstractMessageHandler';
+import { Message, Client } from 'discord.js';
 
 export default class TeamMessageHandler extends AbstractMessageHandler {
-    constructor() {
-        super(new RegExp(`^(${creators.join('|')})`, 'i'));
+
+    private static readonly MESSAGE_REGEX: RegExp = new RegExp(`^(${creators.join('|')})`, 'i');
+
+    static canHandle(message: string): boolean {
+        return this.MESSAGE_REGEX.test(message);
     }
 
     handle(message: Message, client: Client) {

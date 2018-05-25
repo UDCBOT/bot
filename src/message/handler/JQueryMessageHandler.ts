@@ -1,10 +1,13 @@
-import AbstractMessageHandler from "./AbstractMessageHandler";
-import { Message, Client } from "discord.js";
-import { jQueryEmoticon } from "../../constants";
+import AbstractMessageHandler from './AbstractMessageHandler';
+import { Message, Client } from 'discord.js';
+import { jQueryEmoticon } from '../../constants';
 
 export default class JQueryMessageHandler extends AbstractMessageHandler {
-    constructor() {
-        super(/jquery/gim);
+
+    private static readonly MESSAGE_REGEX: RegExp = /jquery/gim;
+
+    static canHandle(message: string): boolean {
+        return this.MESSAGE_REGEX.test(message);
     }
 
     handle(message: Message, client: Client) {
