@@ -5,7 +5,7 @@
 ## Setup
 
 ### Requirements
-* [NodeJS](https://nodejs.org/en/) (v9.4.0 +)
+* [NodeJS](https://nodejs.org/en/) (v10.1.0 +)
 * [Gulp Cli](https://gulpjs.com/) (v2.0.1 +)
 * Some IDE
 
