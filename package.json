@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "node out/index.js"
+    "lint": "./node_modules/.bin/tslint ./src"
   },
   "repository": {
     "type": "git",
