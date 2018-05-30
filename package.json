@@ -23,7 +23,7 @@
   "homepage": "https://github.com/UDCBOT/bot#readme",
   "devDependencies": {
     "@types/core-js": "^0.9.46",
-    "@types/node": "^9.4.0",
+    "@types/node": "^10.1.4",
     "@types/dotenv": "^4.0.3",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.4",
