@@ -27,7 +27,7 @@
     "@types/dotenv": "^4.0.3",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.4",
-    "mocha": "^5.0.0",
+    "mocha": "^5.2.0",
     "tslint": "^5.9.1",
     "tslint-config-airbnb": "^5.5.0"
   },
