@@ -1,6 +1,7 @@
-import { Client } from 'discord.js';
+import {Client} from 'discord.js';
 import TeamMessageHandler from './message/handler/TeamMessageHandler';
 import JQueryMessageHandler from './message/handler/JQueryMessageHandler';
+import Twitter from './twitter/Twitter';
 
 import * as dotenv from 'dotenv';
 import GuildJoinHandler from './enter/GuildJoinHandler';
@@ -13,7 +14,16 @@ const messageHandlers = [TeamMessageHandler, JQueryMessageHandler];
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+
 });
+
+// calls the Twitter obj to get the TwitterFeed. Needs Taget ChannelID
+function getTwitter() {
+    Twitter.getTwitter(client.channels.find('id', '459401206134210570'));
+}
+
+// Set Interval for TwitterFeeds. Needs to call a function || 30*60*1000 = 30min
+client.setInterval(getTwitter, (30 * 60 * 1000));
 
 client.on('message', (msg) => {
     // do not care about the message if the author is a bot
@@ -32,5 +42,4 @@ client.on('message', (msg) => {
 client.on('guildMemberAdd', (member) => {
     new GuildJoinHandler(member, client);
 });
-
 client.login(process.env.token.toString());
