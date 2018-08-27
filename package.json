@@ -5,7 +5,8 @@
   "main": "out/src/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node out/index.js"
+    "start": "node out/index.js",
+    "lint": "./node_modules/.bin/tslint ./src/**/*.ts"
   },
   "repository": {
     "type": "git",
