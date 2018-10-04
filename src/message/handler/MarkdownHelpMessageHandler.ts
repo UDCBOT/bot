@@ -10,6 +10,6 @@ export default class MarkdownHelpMessageHandler extends AbstractMessageHandler {
     }
 
     handle(message: Message, client: Client) {
-        message.channel.send("https://lgk.io/files/markdown-code-format-explain-german.png");
+        message.channel.send('https://lgk.io/files/markdown-code-format-explain-german.png');
     }
 }
