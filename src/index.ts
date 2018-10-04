@@ -27,7 +27,7 @@ client.on('message', (msg) => {
                 instantiatedHandlers.set(handler.HANDLER_ID, new handler());
             }
 
-            let handlerInstance = instantiatedHandlers.get(handler.HANDLER_ID);
+            const handlerInstance = instantiatedHandlers.get(handler.HANDLER_ID);
 
             handlerInstance.handle(msg, client);
             break;

@@ -6,7 +6,7 @@ export default class JQueryMessageHandler extends AbstractMessageHandler {
 
     private static readonly MESSAGE_REGEX: RegExp = /jquery/gim;
 
-    public static readonly HANDLER_ID: String = "jquery";
+    public static readonly HANDLER_ID: String = 'jquery';
 
     static canHandle(message: string): boolean {
         return this.MESSAGE_REGEX.test(message);
