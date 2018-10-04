@@ -10,6 +10,7 @@ dotenv.load();
 const client = new Client;
 
 const messageHandlers = [TeamMessageHandler, JQueryMessageHandler];
+const instantiatedHandlers = new Map();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -22,8 +23,13 @@ client.on('message', (msg) => {
     // get the first handler that can handle this message
     for (const handler of messageHandlers) {
         if (handler.canHandle(msg.content)) {
-            const iniatedClass = new handler();
-            iniatedClass.handle(msg, client);
+            if (!instantiatedHandlers.has(handler.HANDLER_ID)) {
+                instantiatedHandlers.set(handler.HANDLER_ID, new handler());
+            }
+
+            const handlerInstance = instantiatedHandlers.get(handler.HANDLER_ID);
+
+            handlerInstance.handle(msg, client);
             break;
         }
     }
