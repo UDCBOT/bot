@@ -1,6 +1,8 @@
-const { creators } = require('../../constants');
+import Lang from '../../utils/Lang';
 import AbstractMessageHandler from './AbstractMessageHandler';
-import { Message, Client } from 'discord.js';
+import { Client, Message } from 'discord.js';
+
+const { creators } = require('../../constants');
 
 export default class TeamMessageHandler extends AbstractMessageHandler {
 
@@ -11,7 +13,11 @@ export default class TeamMessageHandler extends AbstractMessageHandler {
     static canHandle(message: string): boolean {
         return this.MESSAGE_REGEX.test(message);
     }
+
     handle(message: Message, client: Client) {
-        message.channel.send(`Ja, ${message.author}, der ist ein super Typ!`);
+        const lang = new Lang('message\\handler\\TeamMessageHandler');
+        lang.get('msg', { author: message.author }).then((data) => {
+            message.channel.send(data);
+        });
     }
 }

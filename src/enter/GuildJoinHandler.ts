@@ -1,18 +1,12 @@
 import { Client, GuildMember, TextChannel } from 'discord.js';
-import { welcomeChannelId }                 from '../constants';
+import { welcomeChannelId } from '../constants';
+import Lang from '../utils/Lang';
 
-export default class GuildJoinHandler
-{
+export default class GuildJoinHandler {
 
     private channel: TextChannel = undefined;
 
-    private greetingStrings: String[] = [
-        'Mit {{name}} wird PHP zu HTML!',
-        'Platz da, {{name}} kommt!',
-        'Achtung! Das W3C hat ein neuen HTML5-Tag eingeführt: <{{name}}/>',
-        '{{name}} braucht kein Framework. Das Framework braucht ihn!',
-        '{{name}} bringt iFrames im IE zum laufen!',
-    ];
+    private lang: Lang;
 
     constructor(member: GuildMember, client: Client) {
         this.channel = <TextChannel>(client.channels.get(welcomeChannelId));
@@ -23,13 +17,28 @@ export default class GuildJoinHandler
     }
 
     private greet(member: GuildMember) {
-        this.channel.send(this.getGreetingString(member.displayName));
+        this.lang = new Lang('enter\\GuildJoinHandler');
+
+        this.getGreetingString(member.displayName).then((data) => {
+            this.channel.send(data);
+        });
     }
 
-    private getGreetingString(name) {
-        const length = this.greetingStrings.length;
-        const greetingString = this.greetingStrings[Math.floor(Math.random() * length)];
-        return greetingString.replace('{{name}}', name);
-    }
+    private getGreetingString(name): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.lang.getLangFile().then((data) => {
+                const keys = Object.keys(data);
+                const length = keys.length;
+                const greetingKey = keys[Math.floor(Math.random() * length)];
 
+                this.lang.get(greetingKey, { name }).then((data) => {
+                    resolve(data);
+                }).catch((err) => {
+                    reject(err);
+                });
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    }
 }

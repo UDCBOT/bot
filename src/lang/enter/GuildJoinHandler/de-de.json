@@ -1,0 +1,7 @@
+{
+    "php": "Mit <%= name %> wird PHP zu HTML!",
+    "makeRoom": "Platz da, <%= name %> kommt!",
+    "w3c": "Achtung! Das W3C hat ein neuen HTML5-Tag eingeführt: < <%= name %> />",
+    "framework": "<%= name %> braucht kein Framework. Das Framework braucht ihn!",
+    "iframes": "<%= name %> bringt iFrames im IE zum laufen!"
+}
