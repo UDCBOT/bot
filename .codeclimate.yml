@@ -1,0 +1,6 @@
+engines:
+  tslint:
+    enabled: true
+    checks:
+      linebreak-style:
+        enabled: false
