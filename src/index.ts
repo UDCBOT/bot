@@ -1,6 +1,7 @@
 import { Client } from 'discord.js';
 import TeamMessageHandler from './message/handler/TeamMessageHandler';
 import JQueryMessageHandler from './message/handler/JQueryMessageHandler';
+import EulerMessageHandler from './message/handler/EulerMessageHandler';
 
 import * as dotenv from 'dotenv';
 import GuildJoinHandler from './enter/GuildJoinHandler';
@@ -9,7 +10,7 @@ dotenv.load();
 
 const client = new Client;
 
-const messageHandlers = [TeamMessageHandler, JQueryMessageHandler];
+const messageHandlers = [TeamMessageHandler, JQueryMessageHandler, EulerMessageHandler];
 const instantiatedHandlers = new Map();
 
 client.on('ready', () => {
