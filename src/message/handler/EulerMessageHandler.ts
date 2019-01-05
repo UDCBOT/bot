@@ -18,6 +18,7 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
     private static readonly POSSIBLE_ERRORS: string[] = ['ERR_NOT_FOUND', 'ERR_SERVER'];
 
     static canHandle(message: string): boolean {
+        this.MESSAGE_REGEX.lastIndex = 0;
         return this.MESSAGE_REGEX.test(message);
     }
 
