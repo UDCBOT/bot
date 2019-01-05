@@ -11,7 +11,12 @@ dotenv.load();
 
 const client = new Client;
 
-const messageHandlers = [TeamMessageHandler, JQueryMessageHandler, MarkdownHelpMessageHandler, EulerMessageHandler];
+const messageHandlers = [
+    TeamMessageHandler,
+    JQueryMessageHandler,
+    MarkdownHelpMessageHandler,
+    EulerMessageHandler
+];
 const instantiatedHandlers = new Map();
 
 client.on('ready', () => {

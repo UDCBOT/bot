@@ -34,22 +34,26 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
         }
 
         if (execCommand.trim() === '?') {
-            this.fetchText(url).then((data) => {
-                const $ = cheerio.load(data);
-                message.reply(
-                    `**Problem ${problem}**`
-                    + '\n```' + h2p($('#content .problem_content').html())
-                    + '\n```',
-                );
-            }).catch((err) => {
-                const lang = new Lang('message\\handler\\EulerMessageHandler');
-                if (EulerMessageHandler.POSSIBLE_ERRORS.includes(err)) {
-                    lang.get(err.toLowerCase(), { problem }).then((data) => {
-                        message.reply(data);
-                    });
-                }
-            });
+            this.handleFetchText(message, url, problem);
         }
+    }
+
+    private handleFetchText(message: Message, url: string, problem: number): void {
+        this.fetchText(url).then((data) => {
+            const $ = cheerio.load(data);
+            message.reply(
+                `**Problem ${problem}**`
+                + '\n```' + h2p($('#content .problem_content').html())
+                + '\n```',
+            );
+        }).catch((err) => {
+            const lang = new Lang('message\\handler\\EulerMessageHandler');
+            if (EulerMessageHandler.POSSIBLE_ERRORS.includes(err)) {
+                lang.get(err.toLowerCase(), { problem }).then((data) => {
+                    message.reply(data);
+                });
+            }
+        });
     }
 
     private fetchText(url: string): Promise<string> {
