@@ -15,15 +15,18 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
 
     public static readonly HANDLER_ID: String = 'euler';
 
+    private static readonly POSSIBLE_ERRORS: string[] = ['ERR_NOT_FOUND', 'ERR_SERVER'];
+
     static canHandle(message: string): boolean {
         return this.MESSAGE_REGEX.test(message);
     }
 
     handle(message: Message, client: Client) {
-        const command = new RegExp(EulerMessageHandler.MESSAGE_REGEX).exec(message.content);
-        const problem = parseInt(command[1], 10);
-        const url = `https://projecteuler.net/problem=${problem}`;
-        const execCommand = command[2];
+        const command: RegExpExecArray | null
+                  = new RegExp(EulerMessageHandler.MESSAGE_REGEX).exec(message.content);
+        const problem: number = parseInt(command[1], 10);
+        const url: string = `https://projecteuler.net/problem=${problem}`;
+        const execCommand: String | undefined = command[2];
 
         if (execCommand === undefined) {
             message.reply(url);
@@ -39,9 +42,9 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
                     + '\n```',
                 );
             }).catch((err) => {
-                if (err === 'NOT_FOUND') {
-                    const lang = new Lang('message\\handler\\EulerMessageHandler');
-                    lang.get('err', { problem }).then((data) => {
+                const lang = new Lang('message\\handler\\EulerMessageHandler');
+                if (EulerMessageHandler.POSSIBLE_ERRORS.includes(err)) {
+                    lang.get(err.toLowerCase(), { problem }).then((data) => {
                         message.reply(data);
                     });
                 }
@@ -52,9 +55,8 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
     private fetchText(url: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             get(url, (response) => {
-                console.log(response.statusCode);
                 if (response.statusCode !== 200) {
-                    reject('NOT_FOUND');
+                    reject(response.statusCode === 302 ? 'ERR_NOT_FOUND' : 'ERR_SERVER');
                 }
                 let data = '';
 

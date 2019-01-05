@@ -1,3 +1,4 @@
 {
-    "err": "Problem <%- problem %> existiert nicht!"
+    "err_not_found": "Problem <%- problem %> existiert nicht!",
+    "err_server": "Es ist ein Problem mit der Seite aufgetreten!"
 }
