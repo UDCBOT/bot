@@ -15,7 +15,7 @@ const messageHandlers = [
     TeamMessageHandler,
     JQueryMessageHandler,
     MarkdownHelpMessageHandler,
-    EulerMessageHandler
+    EulerMessageHandler,
 ];
 const instantiatedHandlers = new Map();
 
