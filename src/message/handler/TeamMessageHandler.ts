@@ -1,6 +1,7 @@
 import Lang from '../../utils/Lang';
 import AbstractMessageHandler from './AbstractMessageHandler';
 import { Client, Message } from 'discord.js';
+import Log from '../../utils/Log';
 
 const { creators } = require('../../constants');
 
@@ -19,5 +20,6 @@ export default class TeamMessageHandler extends AbstractMessageHandler {
         lang.get('msg', { author: message.author }).then((data) => {
             message.channel.send(data);
         });
+        Log.text('Team Message sent!', message, client);
     }
 }
