@@ -12,7 +12,7 @@ export default class Log {
         reaction: string,
         message: Message,
         client: Client,
-        type: number = this.TYPE_INFO
+        type: number = this.TYPE_INFO,
     ): void {
         const logChannel: TextChannel = <TextChannel>client.channels.get(logChannelId);
         if (!logChannel) {
