@@ -20,6 +20,5 @@ export default class TeamMessageHandler extends AbstractMessageHandler {
         lang.get('msg', { author: message.author }).then((data) => {
             message.channel.send(data);
         });
-        Log.text('Team Message sent!', message, client);
     }
 }
