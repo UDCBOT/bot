@@ -1,5 +1,5 @@
 import AbstractMessageHandler from './AbstractMessageHandler';
-import { Client, Message } from 'discord.js';
+import { Client, Message, RichEmbed } from 'discord.js';
 import { commandPrefix } from '../../constants';
 import { get } from 'https';
 import * as h2p from 'html2plaintext';
@@ -42,11 +42,16 @@ export default class EulerMessageHandler extends AbstractMessageHandler {
     private handleFetchText(message: Message, url: string, problem: number): void {
         this.fetchText(url).then((data) => {
             const $ = cheerio.load(data);
-            message.reply(
-                `**Problem ${problem}**`
-                + '\n```' + h2p($('#content .problem_content').html())
-                + '\n```',
-            );
+
+            const embedded = (new RichEmbed())
+                .setTitle(`Problem ${problem}`)
+                .setColor(0xFF9933)
+                .setDescription(h2p($('#content .problem_content').html()))
+                .setAuthor('Project Euler', undefined, 'https://projecteuler.net/')
+                .setURL(url)
+                .setFooter(h2p($('#problem_info h3 span span').html()));
+
+            message.channel.send(embedded);
         }).catch((err) => {
             const lang = new Lang('message\\handler\\EulerMessageHandler');
             if (EulerMessageHandler.POSSIBLE_ERRORS.includes(err)) {
