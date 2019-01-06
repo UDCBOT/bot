@@ -37,7 +37,8 @@ export default class Log {
                 true,
             )
             .setColor(type)
-            .addField('Channel', (<TextChannel>message.channel).name, true)
-            .addField('Reaction', reaction);
+            .addField('Channel', message.channel, true)
+            .addField('Reaction', reaction)
+            .setTimestamp(new Date(message.createdTimestamp));
     }
 }
