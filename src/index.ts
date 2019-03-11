@@ -5,6 +5,7 @@ import MarkdownHelpMessageHandler from './message/handler/MarkdownHelpMessageHan
 
 import * as dotenv from 'dotenv';
 import GuildJoinHandler from './enter/GuildJoinHandler';
+import RulesHandler from './enter/RulesHandler';
 
 dotenv.load();
 
@@ -37,6 +38,7 @@ client.on('message', (msg) => {
 });
 
 client.on('guildMemberAdd', (member) => {
+    new RulesHandler(member);
     new GuildJoinHandler(member, client);
 });
 
