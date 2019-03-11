@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/UDCBOT/bot#readme",
   "devDependencies": {
+    "@types/cheerio": "^0.22.10",
     "@types/core-js": "^0.9.46",
     "@types/dotenv": "^6.1.0",
     "@types/node": "^11.11.0",
