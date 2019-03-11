@@ -1,6 +1,7 @@
 import AbstractMessageHandler from './AbstractMessageHandler';
 import { Message, Client } from 'discord.js';
 import { jQueryEmoticon } from '../../constants';
+import Log from '../../utils/Log';
 
 export default class JQueryMessageHandler extends AbstractMessageHandler {
 
@@ -13,6 +14,8 @@ export default class JQueryMessageHandler extends AbstractMessageHandler {
     }
 
     handle(message: Message, client: Client) {
-        message.react(jQueryEmoticon);
+        message.react(jQueryEmoticon).catch((reason) => {
+            Log.text('JQuery Message', reason, message, message.client, Log.TYPE_ERROR);
+        });
     }
 }

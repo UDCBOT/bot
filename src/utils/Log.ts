@@ -20,11 +20,21 @@ export default class Log {
             throw new Error('logChannel not found!');
         }
 
-        try {
-            logChannel.send(Log.getEmbedded(action, reaction, message, type));
-        } catch (e) {
-            throw new LogFailedException(e.message);
+        logChannel.send(Log.getEmbedded(action, reaction, message, type)).catch((reason) => {
+            throw new LogFailedException(reason);
+        });
+    }
+
+    private static getReactionTypeName(type: number): string {
+        if (type === this.TYPE_WARNING) {
+            return 'Warning';
         }
+
+        if (type === this.TYPE_ERROR) {
+            return 'Error';
+        }
+
+        return 'Info';
     }
 
     private static getEmbedded(
@@ -34,16 +44,16 @@ export default class Log {
         type: number,
     ): RichEmbed {
         return (new RichEmbed())
-            .setTitle(action)
-            .addField('Action', message.content)
+            .setTitle(`${this.getReactionTypeName(type)}: ${action}`)
+            .addField('Original Message', message.content)
             .addField(
-                'User',
+                'By User',
                 `${message.author.username} (${message.author})`,
                 true,
             )
             .setColor(type)
-            .addField('Channel', message.channel, true)
-            .addField('Reaction', reaction)
+            .addField('In Channel', message.channel, true)
+            .addField(this.getReactionTypeName(type), reaction)
             .setTimestamp(new Date(message.createdTimestamp));
     }
 }
