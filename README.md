@@ -18,7 +18,7 @@
     token = YOUR_TOKEN
     ```
 * Setup eslint in your IDE
-* Run `gulp` for build process
+* Run `gulp` for build process or `gulp watch` for watch process
 
 
 ## License

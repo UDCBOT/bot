@@ -20,5 +20,9 @@ gulp.task('copyLang', copyLang);
 
 gulp.task('build', gulp.parallel('copyFiles', 'copyLang'));
 
+gulp.task('watch', () => {
+    gulp.watch('src/', gulp.parallel('build'));
+});
+
 gulp.task('default', gulp.parallel('build'));
 
