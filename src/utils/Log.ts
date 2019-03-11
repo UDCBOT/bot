@@ -1,5 +1,6 @@
 import { Client, Message, RichEmbed, TextChannel } from 'discord.js';
 import { logChannelId } from '../constants';
+import LogFailedException from '../exception/LogFailedException';
 
 export default class Log {
 
@@ -19,7 +20,11 @@ export default class Log {
             throw new Error('logChannel not found!');
         }
 
-        logChannel.send(Log.getEmbedded(action, reaction, message, type));
+        try {
+            logChannel.send(Log.getEmbedded(action, reaction, message, type));
+        } catch (e) {
+            throw new LogFailedException(e.message);
+        }
     }
 
     private static getEmbedded(
