@@ -1,6 +1,7 @@
 import AbstractMessageHandler from './AbstractMessageHandler';
 import { Message, Client } from 'discord.js';
 import { markdownHelpImage } from '../../constants';
+import Log from '../../utils/Log';
 
 export default class MarkdownHelpMessageHandler extends AbstractMessageHandler {
 
@@ -13,6 +14,8 @@ export default class MarkdownHelpMessageHandler extends AbstractMessageHandler {
     }
 
     handle(message: Message, client: Client) {
-        message.channel.send(markdownHelpImage);
+        message.channel.send(markdownHelpImage).catch((reason) => {
+            Log.text('Markdown Help Message', reason, message, message.client, Log.TYPE_ERROR);
+        });
     }
 }
