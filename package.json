@@ -27,7 +27,7 @@
     "@types/node": "^11.11.0",
     "gulp": "^4.0.0",
     "gulp-typescript": "^5.0.0",
-    "mocha": "^6.0.0",
+    "mocha": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
     "@types/ejs": "^2.6.0",
